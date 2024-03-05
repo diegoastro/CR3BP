@@ -46,7 +46,7 @@ num_steps = int((t_final - t) / dt)
 
 #%% RK4
 
-x, y, vx, vy = l3[0], l3[1], vp[0], vp[1] #aqui se cambian las condiciones iniciales para ver las distintas trayectorias
+x, y, vx, vy = l1[0], l1[1], vp[0], vp[1] #aqui se cambian las condiciones iniciales para ver las distintas trayectorias
 
 # Inicializamos listas para posición y velocidad
 xp = []
@@ -81,7 +81,7 @@ print('Tiempo de ejecución RK4', end - start)
 
 #%% Verlet
 
-x, y, vx, vy = l4[0], l4[1], vp[0], vp[1] #aqui se cambian las condiciones iniciales para ver las distintas trayectorias
+x, y, vx, vy = l1[0], l1[1], vp[0], vp[1] #aqui se cambian las condiciones iniciales para ver las distintas trayectorias
 
 xp_v = []
 yp_v = []
@@ -114,7 +114,7 @@ print('Tiempo de ejecución Verlet:', end - start)
 
 #%% Euler
 
-x, y, vx, vy = l3[0], l3[1], vp[0], vp[1] #aqui se cambian las condiciones iniciales para ver las distintas trayectorias
+x, y, vx, vy = l1[0], l1[1], vp[0], vp[1] #aqui se cambian las condiciones iniciales para ver las distintas trayectorias
 
 xp_euler = []
 yp_euler = []
@@ -145,36 +145,34 @@ plt.figure()
 plt.plot(xp, yp, color = 'blue', linewidth = 0.5 )
 plt.plot(rsj[0], rsj[1], 'o', color='orange', label=r'Planeta ($30M_J$)', markersize = 10)
 plt.plot(rs[0], rs[1], 'o', color='yellow', markeredgecolor="#FD7813", label='Sol', markersize = 15)
-plt.plot(l3[0], l3[1], '+', color = 'black', label = r'$\mathcal{L}_3$')#Cambiar aqui segun que condicion inicial se este usando
+plt.plot(l1[0], l1[1], '+', color = 'black', label = r'Condicion Inicial')#Cambiar aqui segun que condicion inicial se este usando
 plt.xlabel(r'$X$')
 plt.ylabel(r'$Y$')
-#plt.legend(loc = 'best')
+plt.legend(loc = 'best')
 plt.tight_layout()
-plt.savefig('C:/Users/usuario/Desktop/Facultad/8vo Semestre/Fisica Comp/PROYECTO FINAL/L3/rk4_l3_zoom.pdf', bbox_inches='tight')
 
 #%%-------------------Euler-----------------------------------------------------------------------------
 plt.figure()
 plt.plot(xp_euler,yp_euler, color = 'green', linewidth=0.5 )
 plt.plot(rsj[0], rsj[1], 'o', color='orange', label=r'Planeta ($30M_J$)', markersize = 10)
 plt.plot(rs[0], rs[1], 'o', color='yellow', markeredgecolor="#FD7813", label='Sol', markersize = 15)
-plt.plot(l3[0], l3[1], '+', color = 'black', label = r'$\mathcal{L}_3$')#Cambiar aqui segun que condicion inicial se este usando
+plt.plot(l1[0], l1[1], '+', color = 'black', label = r'Condicion Inicial')#Cambiar aqui segun que condicion inicial se este usando
 plt.xlabel(r'$X$')
 plt.ylabel(r'$Y$')
 plt.legend(loc = 'best')
 plt.tight_layout()
-plt.savefig('C:/Users/usuario/Desktop/Facultad/8vo Semestre/Fisica Comp/PROYECTO FINAL/L3/euler_l3.pdf', bbox_inches='tight')
 
 #%%-------------------Verlet----------------------------------------------------------------------------
 plt.figure()
 plt.plot(xp_v, yp_v, color='purple' ,linewidth=0.5 )
 plt.plot(rsj[0], rsj[1], 'o', color='orange', label=r'Planeta ($30M_J$)', markersize = 10)
 plt.plot(rs[0], rs[1], 'o', color='yellow', markeredgecolor="#FD7813", label='Sol', markersize = 15)
-plt.plot(l5[0], l5[1], '+', color = 'black', label = r'$\mathcal{L}_5$')#Cambiar aqui segun que condicion inicial se este usando
+plt.plot(l1[0], l1[1], '+', color = 'black', label = r'Condicion Inicial')#Cambiar aqui segun que condicion inicial se este usando
 plt.xlabel(r'$X$')
 plt.ylabel(r'$Y$')
 plt.legend(loc = 'best')
 plt.tight_layout()
-plt.savefig('C:/Users/usuario/Desktop/Facultad/8vo Semestre/Fisica Comp/PROYECTO FINAL/L5/verlet_l5.pdf', bbox_inches='tight')
+
 
 #%%Animacion
 
@@ -185,7 +183,7 @@ posy = []
 # Plot los puntos fijos fuera de la función animate
 ax.plot(rsj[0], rsj[1], 'o', color='orange', label=r'Planeta ($30M_J$)', markersize = 10)
 ax.plot(rs[0], rs[1], 'o', color='yellow', markeredgecolor="#FD7813", label='Sol', markersize = 15)
-ax.plot(l4[0], l4[1], '+', color = 'black', label = r'$\mathcal{L}_4$')#Cambiar aqui segun que condicion inicial se este usando
+ax.plot(l1[0], l1[1], '+', color = 'black', label = r'Condicion Inicial')#Cambiar aqui segun que condicion inicial se este usando
 ax.set_xlabel(r'$X$')
 ax.set_ylabel(r'$Y$')
 ax.legend(loc='best')
